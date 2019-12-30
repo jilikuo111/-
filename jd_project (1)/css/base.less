@@ -1,0 +1,95 @@
+// 这里写一些 样式的重置 以及共用样式
+// 定义一些变量 后期反复使用
+@jd_Color: #e43130;
+@bj_Color: #f6f6f6;
+@color: #333; // a链接文字的颜色
+
+
+// 对所有元素进行样式重置
+*,::before,::after {
+  margin: 0;
+  padding: 0;
+  // 可能需要添加浏览器前缀 （兼容旧版浏览器内核浏览器 ）
+  .prefix(box-sizing,border-box);
+  // 移动端的控件 select 按钮 默认外观清除掉
+  .prefix(appearance, none); 
+}
+
+a {
+  text-decoration: none;
+  color: @color;
+  // 移动端webkit内核浏览器 当点击a链接 默认有一个高亮显示
+  -webkit-tap-highlight-color: transparent;
+  &:hover {
+    color: @color;
+  }
+}
+
+html {
+  // iphone5 320  gaishi5  360  iphoneX 375 
+  // 320/8  40px   1vw:3.2px 
+  font-size: 12.5vw;
+}
+
+body {
+  color: #666;
+  font-size: 14px;
+  background-color: @bj_Color;
+  font-family: 'Microsoft YaHei', Helvetica, sans-serif;
+  padding-bottom: 1rem;
+}
+
+ol,ul {
+  list-style: none;
+}
+input,textarea {
+  outline: none;
+  resize:none
+}
+img {
+  border:none;
+}
+strong,b {
+  font-weight: normal;
+}
+
+em,i {
+  font-style: normal;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+
+// 定义一个混入 实现添加浏览器前缀
+.prefix (@attr,@val) {
+  @{attr}: @val;
+  -webkit-@{attr}: @val;
+  -moz-@{attr}: @val;
+  -ms-@{attr}: @val;
+  -o-@{attr}: @val;
+}
+
+
+// 公用样式 
+
+.fl {
+  float: left;
+}
+.fr {
+  float:right;
+}
+
+// 定义一个清除浮动的样式
+.clearfix {
+  zoom: 1;
+  &::after {
+    display: block;
+    content: "";
+    clear: both;
+    font-size: 0;
+    line-height: 0;
+    visibility: hidden;
+  }
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style lang="">
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+  click:单击 延迟200～300ms 时间 
+
+  双击 快速单击两次  两个单击 系统为了区分
+
+  移动端用户体验不好 
+
+  推荐touch事件
+
+   touchstart： 当手指触碰屏幕的时候 触发该事件
+   touchmove: 当手指在屏幕上滑动的时候触发该事件
+   touchend 当手指离开屏幕的时候触发该事件
+   touchcancel: 触摸取消事件 由系统触发 因为其他的原因导致触摸事件中断 则触发该事件
+
+   -->
+    <div id="box"></div>
+
+    <script>
+        var oBox = document.querySelector('#box');
+        oBox.addEventListener('click', function() {
+            console.log('单击拉');
+
+        })
+        oBox.addEventListener('touchstart', function(e) {
+            // console.log(e);
+            // e.touches 当前触碰屏幕的所有手指集合
+            // e.targetTouches 当前的触碰的目标元素上的手指数量集合
+            // e.changedTouches  当前事件发生的时候 最新改变之后的手指集合
+
+
+
+
+            console.log('手指开始触碰屏幕拉');
+
+        })
+        oBox.addEventListener('touchmove', function(e) {
+            // console.log(e);
+
+            // console.log(e.touches[0].clientX)
+            // console.log(e.touches[0].clientY)
+
+            console.log('手指在屏幕上正在滑动');
+
+        })
+        oBox.addEventListener('touchend', function() {
+            console.log('手指离开屏幕拉');
+
+        })
+        oBox.addEventListener('touchcancel', function() {
+            console.log('触摸事件中断拉');
+
+        })
+
+        // setTimeout(() => {
+        //     alert('hello')
+        // }, 4000);
+    </script>
+</body>
+
+</html>

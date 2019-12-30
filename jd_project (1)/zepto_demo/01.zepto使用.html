@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <button>单击按钮让p标签淡出</button>
+    <div id="box">盒子</div>
+
+    <p>哈哈哈我是p标签</p>
+</body>
+<!-- 同时引入多个模块会增加http请求数量  -->
+<!-- <script src="./node_modules/zepto/dist/zepto.js"></script>
+<script src="./node_modules/zepto/src/fx.js"></script>
+<script src="./node_modules/zepto/src/fx_methods.js"></script> -->
+<script src="./zepto.js"></script>
+<script>
+    // 下载方式：
+    // 1  http://www.zeptojs.cn/  点击下载文件按钮 
+    // 2 github上 zepto仓库去下载
+
+    // 3 基于nodeJs的npm 包管理器去安装zepto 
+    // npm init -y  使用npm包管理器 去初始化这个目录 生成配置文件package.json
+    //  npm install zepto  ==> node_module ===> dist目录 -- zepto.js
+
+    // animate()
+
+    $('button').eq(0).click(function() {
+        $('p').fadeOut(2000);
+    });
+
+
+    $('#box').click(function() {
+        // $(this).css({
+        //     width: 300,
+        //     height: 200
+        // })
+        // $(this).html("哈哈哈");
+        $(this).animate({
+            width: 400,
+            height: 300
+        }, 2000, 'linear', function() {
+            console.log('哈哈 动画执行完毕');
+
+        })
+    })
+
+    // zepto.js定制 把想要用的常用的 模块  集成成为一个zepto.js 
+
+    // 如何定制
+    // 下载github上面的zepto源码  1 拷贝地址  git clone  https://github.com/madrobby/zepto.git
+    // 2 点击download zip压缩包
+</script>
+
+</html>

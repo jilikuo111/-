@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            /* 让所有的元素 触摸事件的动作设置为无*/
+            touch-action: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        #box {
+            text-align: center;
+            height: 400px;
+            border: 1px solid black;
+            overflow: hidden;
+        }
+        
+        p img {
+            width: 20px;
+            vertical-align: middle;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 1 结构 -->
+    <div id="box">
+        <div class="wrapper">
+            <p class="refresh"><img src="loading.gif">下拉刷新</p>
+            <ul>
+                <li>这是第01个li</li>
+                <li>这是第02个li</li>
+                <li>这是第03个li</li>
+                <li>这是第04个li</li>
+                <li>这是第05个li</li>
+                <li>这是第06个li</li>
+                <li>这是第07个li</li>
+                <li>这是第08个li</li>
+                <li>这是第09个li</li>
+                <li>这是第10个li</li>
+                <li>这是第11个li</li>
+                <li>这是第12个li</li>
+                <li>这是第13个li</li>
+                <li>这是第14个li</li>
+                <li>这是第15个li</li>
+                <li>这是第16个li</li>
+                <li>这是第17个li</li>
+                <li>这是第18个li</li>
+                <li>这是第19个li</li>
+                <li>这是第20个li</li>
+                <li>这是第17个li</li>
+                <li>这是第18个li</li>
+                <li>这是第19个li</li>
+                <li>这是第20个li</li>
+                <li>这是第17个li</li>
+                <li>这是第18个li</li>
+                <li>这是第19个li</li>
+                <li>这是第20个li</li>
+                <li>这是第14个li</li>
+                <li>这是第15个li</li>
+                <li>这是第16个li</li>
+                <li>这是第17个li</li>
+                <li>这是第18个li</li>
+                <li>这是第19个li</li>
+                <li>这是第20个li</li>
+                <li>这是第17个li</li>
+                <li>这是第18个li</li>
+                <li>这是第19个li</li>
+                <li>这是第20个li</li>
+                <li>这是第17个li</li>
+                <li>这是第18个li</li>
+                <li>这是第19个li</li>
+                <li>这是第20个li</li>
+            </ul>
+            <p class="scrollData"><img src="loading.gif">上拉滚动加载</p>
+        </div>
+    </div>
+</body>
+<script src="iscroll-probe.js"></script>
+<script>
+    // 2 功能初始化
+    // 初始化的元素 滚动的区域
+    let myscroll = new IScroll('#box', { // 个性化配置
+        mouseWheel: true, //  可以使用鼠标的滚动来控制滚动
+        // scrollbars: true, // 显示一个小的滚动条
+        // fadeScrollbars: true,
+        probeType: 2 // 控制当前滚动位置的监测方式 监测频率
+            // 1 在滚动不繁忙的时候进行检测 监测的触发时间较长    
+            // 2 每隔一定的时间去检测一下滚动位置  （scroll原生）
+            // 3 像素级别触发 （每滚动一个像素就检测一次）
+    });
+
+    //scrollStart 开始滚动的时候触发
+
+    //   myscroll.on('scrollStart', function() {
+    //           console.log('开始滚动的时候触发');
+    //           console.log(this.y); // 垂直滚动的位置
+
+    //  })
+    // scroll 滚动的时候触发
+    myscroll.on('scroll', function() {
+            // console.log('滚动的时候持续触发');
+            // console.log(this.y); // 垂直滚动的位置
+            if (this.y > 50) {
+                // 说明当前要下拉刷新 手指释放的时候
+                //给当前的 img图片添加一个标记 
+                document.querySelector('.refresh>img').style.display = 'inline-block';
+                document.querySelector('.refresh>img').classList.add('loading');
+            }
+
+            // 判断是否上啦滚动加载
+            // 可视区域的高度 +  滚动过的距离this.y    -  内容的实际高度  > 50
+            var iH = document.documentElement.clientHeight;
+            var conH = document.querySelector('#box').scrollHeight;
+            // console.log(iH);
+            // console.log(conH);
+
+
+            // console.log(Math.abs(this.y) + iH - conH);
+            if (Math.abs(this.y) + iH - conH > 240) {
+                document.querySelector('.scrollData>img').style.display = 'inline-block';
+                console.log('触发拉');
+                // 要进行上啦滚动加载拉
+                document.querySelector('.scrollData>img').classList.add('loading');
+            }
+
+
+        })
+        // scrollEnd 滚动结束之后触发
+    myscroll.on('scrollEnd', function() {
+        // console.log('滚动结束之后触发');
+        // console.log(this.y); // 垂直滚动的位置
+
+        if (document.querySelector('.refresh>img').classList.contains('loading')) {
+
+            // 请求刷新后的数据拉
+            setTimeout(function() {
+                // 数据请求回来拉
+                console.log('数据回来啦');
+
+                fetch('http://localhost:8888/list')
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        document.querySelector('.refresh>img').style.display = 'none'
+                        document.querySelector('.refresh>img').classList.remove('loading')
+                    })
+
+
+            }, 2000);
+        }
+
+
+
+        if (document.querySelector('.scrollData>img').classList.contains('loading')) {
+            // 上啦加载
+
+            // 请求滚动加载后的数据拉
+            setTimeout(function() {
+                fetch('http://localhost:8888/list')
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        document.querySelector('.scrollData>img').style.display = 'none'
+                        document.querySelector('.scrollData>img').classList.remove('loading')
+                    })
+
+            }, 2000);
+        }
+
+    })
+</script>
+
+</html>

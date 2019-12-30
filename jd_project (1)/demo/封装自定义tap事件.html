@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="box"></div>
+
+</body>
+<script>
+    // click 鼠标点击事件 pc端 完整的鼠标按下 弹起的操作 mousedown mouseup
+    // 200～300ms 延迟 用户体验不好
+
+    // touchstart touchmove touchend  移动端没有一个原生的 完整的点按事件
+
+    // tap: 点按的意思 既可以完整 touchstarttouchend  又可以解决延迟问题 （响应时间快一些）
+
+    // 目的： 1 既可以完整 touchstart touchend 中间一定不能有滑动  2 （响应时间快一些）  150ms
+
+    var oBox = document.querySelector('#box');
+
+    // 设置一个变量 
+    // var isMove = false;
+    // var startTime = 0;
+
+    // oBox.addEventListener('touchstart', function() {
+    //     isMove = false;
+    //     // 记录当前的时间
+    //     startTime = Date.now()
+    // })
+    // oBox.addEventListener('touchmove', function() {
+    //     isMove = true;
+    // })
+    // oBox.addEventListener('touchend', function() {
+    //     // 记录当前的时间
+    //     var cha = Date.now() - startTime;
+    //     console.log(cha);
+    //     if (cha < 150 && !isMove) {
+    //         // 响应速度快 中间没有滑动
+    //         // 执行相应的事情 这才是一个真正的tap点按事件
+    //         console.log('触发tap事件拉');
+
+    //     }
+
+    // })
+
+    tap(oBox, function(e) {
+
+        console.log(this);
+        console.log(e);
+
+
+    });
+
+    function tap(obj, callback) {
+        // 设置一个变量 
+        var isMove = false;
+        var startTime = 0;
+
+        obj.addEventListener('touchstart', function() {
+            // 记录当前的时间
+            isMove = false;
+            startTime = Date.now()
+        })
+        obj.addEventListener('touchmove', function() {
+            isMove = true;
+        })
+        obj.addEventListener('touchend', function(e) {
+            // 记录当前的时间
+            var cha = Date.now() - startTime;
+            // console.log(cha);
+            if (cha < 150 && !isMove) {
+                // 响应速度快 中间没有滑动
+                // 执行相应的事情 这才是一个真正的tap点按事件
+                // console.log('触发tap事件拉');
+                (typeof callback == 'function') && callback.call(obj, e);
+            }
+
+        })
+    }
+</script>
+
+</html>

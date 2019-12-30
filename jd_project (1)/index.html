@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- meta网站描述信息 -->
+    <!-- 网页编码utf-8 国际通用编码  gb2312--gbk  -->
+    <meta charset="UTF-8">
+    <!-- viewport视口设置
+      让当前的可视区域的宽度 等于 当前的设备的逻辑像素宽 
+      iphone5 320  三星盖世5 360  iphoneX 375
+      width=device-width 
+      initial-scale=1.0 初始化的比例为1 不缩放
+      user-scaleable=no 禁止用户缩放
+       viewport-fit=cover 针对iphoneX前刘海问题
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no, viewport-fit=cover">
+    <!-- 下面这个设置 是针对IE8的优化  X-UA-Compatible标识只有在IE8中可以识别
+    如果当前浏览器是IE8 则按照ie-edge最高浏览器模式进行渲染
+    win10 edge 浏览器
+    -->
+    <!-- 描述 针对SEO优化 -->
+    <meta name="description" content="京东是网上最大的综合电子商城 提供各类服务">
+    <!-- 关键词 针对SEO优化 -->
+    <meta name="keyword" content="京东、各类服饰、美容、家居、数码、话费/点卡充值… 数亿优质商品">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- 设置当前的网页缓存 最大时间180s -->
+    <meta http-equiv="Cache-Control" content="max-age=180">
+    <!-- 设置苹果手机设备菜单栏隐藏  -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 设置苹果状态栏的颜色为黑色 -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- 苹果设备 上 会把一些网页中连续的数字当成 一个可以拨打的手机号 所以禁用手机号识别 -->
+    <meta name="format-detection" content="telephone=no">
+    <!-- 针对京东的图片服务器进行预解析优化 事先把当前的url地址进行预解析 
+后续反复使用当前的url地址的时候 可以快速打开 提供效率
+-->
+
+    <link rel="dns-prefetch" href="//m.360buyimg.com">
+    <!-- 开启网页dns预解析 -->
+    <meta http-equiv="x-dns-prefetch-control" content="on" />
+    <title>My-JD-project</title>
+    <!-- 引入首页的样式 -->
+    <link rel="stylesheet" href="css/index.css">
+    <!-- 引入网站图标ico -->
+    <link rel="shortcut icon" type="imagex/x-icon" href="http://127.0.0.1:8080/favicon.ico">
+</head>
+
+<body>
+    <!-- 顶部搜索区域 -->
+    <header>
+        <div class="header_con">
+            <a href="javascript:;" class="menu"></a>
+            <div class="header_box">
+                <!-- 京东图标 -->
+                <i class="jd_icon"></i>
+                <!-- 竖线 -->
+                <i class="line"></i>
+                <!-- 搜索图标 -->
+                <i class="search_icon"></i>
+                <input type="search" class="search" placeholder="T恤">
+            </div>
+            <a href="javascript:;" class="login">登录</a>
+        </div>
+    </header>
+
+    <!-- 轮播区域 -->
+    <div class="lunbo">
+        <ul class="banner clearfix">
+            <li>
+                <a href="javascript:;"><img src="img/banner1.dpg" alt=""></a>
+            </li>
+            <li>
+                <a href="javascript:;"><img src="img/banner2.dpg" alt=""></a>
+            </li>
+            <li>
+                <a href="javascript:;"><img src="img/banner3.dpg" alt=""></a>
+            </li>
+            <li>
+                <a href="javascript:;"><img src="img/banner4.dpg" alt=""></a>
+            </li>
+            <li>
+                <a href="javascript:;"><img src="img/banner5.dpg" alt=""></a>
+            </li>
+        </ul>
+        <!-- 导航小方块 -->
+        <ol class="lunbo_nav clearfix">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ol>
+    </div>
+    <!-- 广告区域 -->
+    <section class="ad">
+        <a href="javascript:;"><img src="img/jd_ad_1.dpg" alt=""></a>
+        <a href="javascript:;"><img src="img/jd_ad_2.dpg" alt=""></a>
+        <a href="javascript:;"><img src="img/jd_ad_3.dpg" alt=""></a>
+    </section>
+
+    <!-- 商品导航列表区域 -->
+    <section class="goods_list">
+        <div class="wrapper">
+            <div class="left">
+                <div class="top">
+                    <a href="javascript:;"><img src="img/nav_img1.webp" alt=""><span>京东超市</span></a>
+                    <a href="javascript:;"><img src="img/nav_img2.webp" alt=""><span>数码电器</span></a>
+                    <a href="javascript:;"><img src="img/nav_img3.webp" alt=""><span>京东服饰</span></a>
+                    <a href="javascript:;"><img src="img/nav_img4.webp" alt=""><span>京东生鲜</span></a>
+                    <a href="javascript:;"><img src="img/nav_img5.webp" alt=""><span>京东到家</span></a>
+                </div>
+                <div class="btm">
+                    <a href="javascript:;"><img src="img/nav_img6.webp" alt=""><span>充值缴费</span></a>
+                    <a href="javascript:;"><img src="img/nav_img7.webp" alt=""><span>9.9元拼</span></a>
+                    <a href="javascript:;"><img src="img/nav_img8.webp" alt=""><span>领券</span></a>
+                    <a href="javascript:;"><img src="img/nav_img9.webp" alt=""><span>赚钱</span></a>
+                    <a href="javascript:;"><img src="img/nav_img10.webp" alt=""><span>PLUS会员</span></a>
+
+                </div>
+            </div>
+            <div class="right">
+                <div class="top">
+                    <a href="javascript:;"><img src="img/nav_r_img1.webp" alt=""><span>京东超市</span></a>
+                    <a href="javascript:;"><img src="img/nav_r_img2.webp" alt=""><span>数码电器</span></a>
+                    <a href="javascript:;"><img src="img/nav_r_img3.webp" alt=""><span>京东服饰</span></a>
+                    <a href="javascript:;"><img src="img/nav_r_img4.dpg" alt=""><span>京东生鲜</span></a>
+                    <a href="javascript:;"><img src="img/nav_r_img5.webp" alt=""><span>京东到家</span></a>
+                </div>
+                <div class="btm">
+                    <a href="javascript:;"><img src="img/nav_r_img6.webp" alt=""><span>充值缴费</span></a>
+                    <a href="javascript:;"><img src="img/nav_r_img7.webp" alt=""><span>9.9元拼</span></a>
+                    <a href="javascript:;"><img src="img/nav_r_img8.webp" alt=""><span>领券</span></a>
+                    <a href="javascript:;"><img src="img/nav_r_img9.webp" alt=""><span>赚钱</span></a>
+                    <a href="javascript:;"><img src="img/nav_r_img10.webp" alt=""><span>PLUS会员</span></a>
+
+                </div>
+
+            </div>
+        </div>
+        <ol class="goods_nav clearfix">
+            <li class="active"></li>
+            <li></li>
+        </ol>
+    </section>
+    <!-- 京东秒杀 -->
+    <section class="jd_kill">
+        <div class="title  clearfix">
+            <h3 class="jd_kill_icon"></h3>
+            <strong class="text">8点场</strong>
+            <div class="time clearfix">
+                <div>00</div>
+                <span>:</span>
+                <div>46</div>
+                <span>:</span>
+                <div>52</div>
+            </div>
+
+            <a href="javasccript:;" class="more">
+                更多秒杀
+                <i></i>
+            </a>
+        </div>
+        <div class="con">
+            <ul class="clearfix">
+                <li>
+                    <a href="javascript:;"><img src="img/jd_kill_img1.dpg" alt=""></a>
+                    <h3 class="newPrice">
+                        <em>&yen;</em> 1688
+                    </h3>
+                    <span class="oldPirce">
+                        <em>&yen;</em>
+                        2780
+                    </span>
+                </li>
+                <li>
+                    <a href="javascript:;"><img src="img/jd_kill_img2.dpg" alt=""></a>
+                    <h3 class="newPrice">
+                        <em>&yen;</em> 458
+                    </h3>
+                    <span class="oldPirce">
+                        <em>&yen;</em>
+                        978
+                    </span>
+                </li>
+                <li>
+                    <a href="javascript:;"><img src="img/jd_kill_img3.dpg" alt=""></a>
+                    <h3 class="newPrice">
+                        <em>&yen;</em> 78
+                    </h3>
+                    <span class="oldPirce">
+                        <em>&yen;</em>
+                       165
+                    </span>
+                </li>
+                <li>
+                    <a href="javascript:;"><img src="img/jd_kill_img4.dpg" alt=""></a>
+                    <h3 class="newPrice">
+                        <em>&yen;</em> 3099
+                    </h3>
+                    <span class="oldPirce">
+                        <em>&yen;</em>
+                        4599
+                    </span>
+                </li>
+                <li>
+                    <a href="javascript:;"><img src="img/jd_kill_img5.dpg" alt=""></a>
+                    <h3 class="newPrice">
+                        <em>&yen;</em> 288
+                    </h3>
+                    <span class="oldPirce">
+                        <em>&yen;</em>
+                        379
+                    </span>
+                </li>
+                <li>
+                    <a href="javascript:;"><img src="img/jd_kill_img1.dpg" alt=""></a>
+                    <h3 class="newPrice">
+                        <em>&yen;</em> 999
+                    </h3>
+                    <span class="oldPirce">
+                        <em>&yen;</em>
+                        699
+                    </span>
+                </li>
+                <li>
+                    <a href="javascript:;"><img src="img/jd_kill_img2.dpg" alt=""></a>
+                    <h3 class="newPrice">
+                        <em>&yen;</em> 1688
+                    </h3>
+                    <span class="oldPirce">
+                        <em>&yen;</em>
+                        2780
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <!-- 新人广告 -->
+    <section class="jd_ad clearfix">
+        <a href="javascript:;"><img src="img/newPerson1.dpg" alt=""></a>
+        <a href="javascript:;"><img src="img/newPerson2.dpg" alt=""></a>
+    </section>
+    <!-- 东家小院 -->
+    <section class="section_title">
+        <img src="img/djxy_bj.dpg" alt="">
+    </section>
+
+    <!-- 东家小院的section区域 -->
+    <section class="djxy">
+        <div class="top clearfix">
+            <div class="left">
+                <div class="text">
+                    <span>时尚衣橱</sp>
+                    <h4>欧美时尚博主推荐</h4>
+                </div>
+                <div class="img_box clearfix">
+                    <img src="img/djxy_img1.dpg" alt="">
+                    <img src="img/djxy_img2.dpg" alt="">
+                </div>
+            </div>
+            <div class="right">
+                <div class="text">
+                    <span>奔跑吧</span>
+                    <h4>向着目的地，冲鸭！</h4>
+                </div>
+                <div class="img_box clearfix">
+                    <img src="img/djxy_img3.dpg" alt="">
+                    <img src="img/djxy_img4.dpg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="btm clearfix">
+            <div class="goods">
+                <h3>爱犬成长</h3>
+                <span>护理用品</span>
+                <img src="img/djxy_img5.dpg" alt="">
+            </div>
+            <div class="goods">
+                <h3>高端白酒</h3>
+                <span>精选白酒</span>
+                <img src="img/djxy_img6.dpg" alt="">
+            </div>
+            <div class="goods">
+                <h3>演绎酷感</h3>
+                <span>引领新时尚</span>
+                <img src="img/djxy_img7.dpg" alt="">
+            </div>
+            <div class="goods">
+                <h3>轻薄羽绒</h3>
+                <span>轻薄羽绒</span>
+                <img src="img/djxy_img8.dpg" alt="">
+            </div>
+        </div>
+    </section>
+
+    <!-- 每日逛 -->
+    <section class="section_title">
+        <img src="img/mrg_bg.dpg" alt="">
+    </section>
+
+    <!-- 每日逛区域 -->
+    <section class="mrg">
+        <div class="goods">
+            <h3>免息星球</h3>
+            <span>白条免息购</span>
+            <img src="img/djxy_img1.dpg" alt="">
+        </div>
+        <div class="goods">
+            <h3>每日特价</h3>
+            <span>9块9疯抢</span>
+            <img src="img/djxy_img2.dpg" alt="">
+        </div>
+        <div class="goods">
+            <h3>品牌闪购</h3>
+            <span>会大牌好价</span>
+            <img src="img/djxy_img3.dpg" alt="">
+        </div>
+        <div class="goods">
+            <h3>京东直播</h3>
+            <span>边看边买</span>
+            <img src="img/djxy_img4.dpg" alt="">
+        </div>
+        <div class="goods">
+            <h3>排行榜</h3>
+            <span>专属购物指南</span>
+            <img src="img/djxy_img5.dpg" alt="">
+        </div>
+        <div class="goods">
+            <h3>拍拍好物</h3>
+            <span>二手优品</span>
+            <img src="img/djxy_img6.dpg" alt="">
+        </div>
+        <div class="goods">
+            <h3>新品首发</h3>
+            <span>京东小魔方</span>
+            <img src="img/djxy_img7.dpg" alt="">
+        </div>
+        <div class="goods">
+            <h3>发现好货</h3>
+            <span>教你买买买</span>
+            <img src="img/djxy_img8.dpg" alt="">
+        </div>
+
+    </section>
+
+    <!-- 京东快报 -->
+    <section class="jdkb clearfix">
+        <h3></h3>
+        <ul>
+            <li><a href="javascript:;"><span>推荐</span>春节出行准备这四件电子用品，让你出行不再烦忧</a></li>
+            <li><a href="javascript:;"><span>最新</span>全面屏美学设计，华为又一笔记本新鲜出炉</a></li>
+            <li><a href="javascript:;"><span>热门</span>身价3600亿的宜家创始人, 原来这么抠</a></li>
+            <li><a href="javascript:;"><span>HOT</span>极米投影仪，给你自由的观影体验</a></li>
+        </ul>
+        <a href="javascript:;" class="more">更多</a>
+    </section>
+
+    <!-- 为你推荐标题 -->
+    <section class="wntj_ad">
+        <img src="img/wntj_bg.png" alt="">
+    </section>
+    <!-- 为你推荐区域 -->
+    <section class="wntj clearfix">
+        <!-- 这是一个商品盒子 product -->
+        <div class="product">
+            <img src="img/product_img1.webp" alt="">
+            <p>骆驼（CAMEL） 骆驼户外情侣徒步鞋 男女款徒步登山休闲透气低帮鞋 卡其/黑/男A832303145 41</p>
+            <div class="text">
+                <strong class="price">
+                    <i>&yen;</i>
+                    249
+                </strong>
+                <span class="flashGo">闪购</span>
+                <span class="look">看相似</span>
+            </div>
+        </div>
+        <div class="product">
+            <img src="img/product_img1.webp" alt="">
+            <p>骆驼（CAMEL） 骆驼户外情侣徒步鞋 男女款徒步登山休闲透气低帮鞋 卡其/黑/男A832303145 41</p>
+            <div class="text">
+                <strong class="price">
+                    <i>&yen;</i>
+                    249
+                </strong>
+
+                <span class="look">看相似</span>
+            </div>
+        </div>
+        <div class="product">
+            <img src="img/product_img1.webp" alt="">
+            <p>骆驼（CAMEL） 骆驼户外情侣徒步鞋 男女款徒步登山休闲透气低帮鞋 卡其/黑/男A832303145 41</p>
+            <div class="text">
+                <strong class="price">
+                    <i>&yen;</i>
+                    249
+                </strong>
+
+                <span class="look">看相似</span>
+            </div>
+        </div>
+        <div class="product">
+            <img src="img/product_img1.webp" alt="">
+            <p>骆驼（CAMEL） 骆驼户外情侣徒步鞋 男女款徒步登山休闲透气低帮鞋 卡其/黑/男A832303145 41</p>
+            <div class="text">
+                <strong class="price">
+                    <i>&yen;</i>
+                    249
+                </strong>
+                <span class="flashGo">闪购</span>
+                <span class="look">看相似</span>
+            </div>
+        </div>
+        <div class="product">
+            <img src="img/product_img1.webp" alt="">
+            <p>骆驼（CAMEL） 骆驼户外情侣徒步鞋 男女款徒步登山休闲透气低帮鞋 卡其/黑/男A832303145 41</p>
+            <div class="text">
+                <strong class="price">
+                    <i>&yen;</i>
+                    249
+                </strong>
+
+                <span class="look">看相似</span>
+            </div>
+        </div>
+        <div class="product">
+            <img src="img/product_img1.webp" alt="">
+            <p>骆驼（CAMEL） 骆驼户外情侣徒步鞋 男女款徒步登山休闲透气低帮鞋 卡其/黑/男A832303145 41</p>
+            <div class="text">
+                <strong class="price">
+                    <i>&yen;</i>
+                    249
+                </strong>
+                <span class="flashGo">闪购</span>
+                <span class="look">看相似</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 底部通栏 -->
+    <nav class="navBar">
+        <a href="javascript:;"><img src="img/navBar_img1.png" alt=""></a>
+        <a href="javascript:;"><img src="img/navBar_img2.png" alt=""></a>
+        <a href="javascript:;"><img src="img/navBar_img3.gif" alt=""></a>
+        <a href="javascript:;"><img src="img/navBar_img4.png" alt=""></a>
+        <a href="javascript:;"><img src="img/navBar_img5.png" alt=""></a>
+    </nav>
+
+    <!-- 返回顶部的按钮 -->
+    <a href="javascript:;" class="goTop"></a>
+</body>
+<!-- <script>
+    // 做一下rem的设置  cssrem 40
+    //  320 360 375
+    var iW = document.documentElement.clientWidth;
+    // 京东的方案 最大适配到1080宽 淘宝方案 540
+    iW = iW > 1080 ? 1080 : iW;
+    document.querySelector('html').style.fontSize = iW / 8 + 'px';
+</script> -->
+<!-- 引入一个js文件 -->
+<script src="js/zepto.js"></script>
+<script src="js/index.js"></script>
+
+</html>

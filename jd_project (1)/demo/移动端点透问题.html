@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 300px;
+            height: 300px;
+            background-color: green;
+            margin: 100px;
+            display: block;
+        }
+        
+        #box2 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            left: 200px;
+            top: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <!-- <a href="http://www.baidu.com" id="box">百度一下</a> -->
+    <div id="box2"></div>
+</body>
+<script src="fastclick.js"></script>
+<script src="tap.js"></script>
+<script>
+    var oBox1 = document.querySelector('#box');
+    var oBox2 = document.querySelector('#box2');
+    // 点透问题
+    // 下面的元素添加的是click事件 200～300ms延迟
+
+    // 使用FastClick插件中的构造函数下面attach绑定方法
+    // 把document文档中的body元素进行绑定
+    // 可以把绑定的元素以及内部所有子元素身上的click单击事件提高响应时间 不再延迟
+    // 内部原理：会模拟一个click事件 当你触发点击的时候 它会先执行这个模拟的点击事件
+    // 稍后真正的原生click点击事件 会屏蔽掉
+    FastClick.attach(document.body);
+
+
+    oBox1.addEventListener('click', function() {
+        console.log('哈哈 触发我绿色盒子的事件拉');
+
+    });
+
+    oBox2.addEventListener('touchend', function() {
+        this.style.display = 'none';
+        console.log('哈哈触发我红色盒子的事件拉');
+
+    })
+
+    // tap(oBox2, function() {
+    //     this.style.display = 'none';
+    // })
+
+    // zepto js库 也封装了一个tap事件 (解决了点透)
+
+    // 点透问题 如何解决
+    // 1 尽量不给下面元素添加click事件 替换别的事件 (惹不起躲得起)
+    // 2 使用zepto的tap事件（内部解决了点透） （项目中使用到了zepto）
+    // 3 使用fastclick.js 小插件 （提高click的响应时间）
+
+
+    // html css js  jquery  ajax  H5C3 移动端京东 
+
+    // 遇到问题  疑惑 记下来 txt 学习困惑 
+
+    // 1312-问题-姓名(可选).txt
+</script>
+
+</html>

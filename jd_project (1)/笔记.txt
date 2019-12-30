@@ -1,0 +1,196 @@
+一、webApp 京东移动端首页  
+布局方式： rem（主体） + flex-box + 浮动 + 百分比 + 固定像素
+css  采用 less预编译语言
+
+京东 两套方案  pc端 一套页面   http://www.jd.com
+
+手机端一套页面  最大适配宽度 1080 兼容平板啦 http://m.jd.com
+
+live-server 本地服务器  网页实时刷新预览
+
+做的时候 按照 iphone5 标准 设计图大小进行编写 
+
+320 / 8 == 40px  
+
+cssrem 插件== 40px
+easyless 插件
+
+二、分析页面结构
+
+   1 顶部搜索区域
+    header 整体的顶部区域
+      header_con
+        a  菜单按钮
+        div.header_search 搜索区域
+             i jd图标
+             i 搜索图标
+             input:search 搜索框
+        a 登录按钮
+
+
+   2 轮播图区域
+
+    div.lunbo
+
+        ul.banner 
+            li 
+               a 
+                  img 
+        ol.nav
+          li 
+            li.active
+
+
+
+   3 广告区域
+
+    section.ad
+      a 
+        img
+
+   4 商品导航区域 （flex-box）
+
+     section.goods_list
+
+        div.left  
+            div.top
+              a 
+                img 
+                span 京东超市 
+            div.btm
+
+        div.right
+
+   5 京东秒杀
+
+   section.jd_kill
+    div.title
+      左侧 
+        h3.jd_kill_icon
+        strong.text 
+        div.time
+            div  00
+            span  :
+            div   47
+            span  :
+            div 50
+
+      右侧 
+         a 
+           更多秒杀
+           span 
+
+    div.con
+        ul 
+
+           li  
+               a  img 
+               h3 
+               span 
+
+   6 新人广告
+    section.jd_ad
+      a 
+        img 
+
+
+
+   7 东家小院
+        section.djxy
+            div.top
+                div.left
+                    h3 
+                    span 
+                    img 
+                div.right
+            div.btm
+              div 
+                h3 
+                span 
+                img 
+
+
+   8 每日逛
+     复用的东家小院的样式  混入
+
+   9 京东快报
+    section.jdkb
+      h3
+      ul 
+        li  
+          a 
+             span 
+      a 更多
+      
+
+   10 为你推荐
+
+  另外还有一个返回顶部按钮/图标
+
+   底部通栏
+    nav  
+      a 
+        img
+
+三、目录结构
+  css 
+  js 
+  img
+  index.html
+
+四 初始化的设置工作
+  
+  1 样式重置(共用样式) reset.less/base.less 
+
+  2 index.less (后续的首页样式全部在这里写)
+
+  3 index.html页面需要设置视口  设置rem适配
+    设置头部信息 meta 标签 
+
+
+
+// ===============
+
+移动端的常用事件  touchstart  touchmove  touchend touchcancel 
+
+自定义封装一个tap事件
+
+点透问题以及如何解决
+
+首页效果 分析  原生js实现 + css3变化 来做轮播图 文字向上滚动 ....
+
+zepto js库如何使用 如何定制（模块化）了解 
+
+
+// ==================
+
+ zepto做一遍轮播图
+
+iscroll 滚动插件 下拉刷新  上拉滚动加载效果 ajax 实现请求数据
+
+
+gulp  讲git版本控制工具  （github） canvas了解    bootstarp了解
+
+
+// =========================
+
+// nodeJs（语法核心 ECMAScript + 文件模块 网络模块 没有js中的DOM/BOM） 运行环境/平台（底层是采用的chrome V8引擎）
+
+// 下载 nodeJS  安装   node -v   自带一个npm包管理器 （可以安装一些基于nodejs的开发的工具）
+
+// npm -v 
+
+
+// window童鞋 git 工具软件  安装   右击 git bash here  (命令是基于linux) powershelgl
+
+// 京东首页页面js效果添加完成
+
+// 封装了一个tap自定义事件
+
+// vw 和 vh 尺寸概念  利用vw 去改html==>font-size:12.5vw (省去写script标签获取可视区域)
+
+// 点透问题 
+
+// zepto 如何定制      zepto 轮播图  iscroll插件  下拉刷新  上啦滚动加载
+
+  
